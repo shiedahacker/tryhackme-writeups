@@ -1,24 +1,47 @@
-# TryHackMe: Write-ups
+# 🛡️ TryHackMe — Writeups & Estudos
 
-Write-ups das salas que concluí no [TryHackMe](https://tryhackme.com), com foco em **SOC Analyst / Blue Team**.
+Repositório com meus **writeups** e anotações da plataforma [TryHackMe](https://tryhackme.com), enquanto percorro uma trilha de estudos focada em **operações de segurança (SOC / Blue Team)** e fundamentos de pentest.
 
-Em cada sala ofensiva, além do caminho do ataque, documento a **visão do defensor**: quais rastros o ataque deixa, como detectá-lo e como evitá-lo, com mapeamento para o MITRE ATT&CK.
+O objetivo não é só registrar as respostas — é documentar a **metodologia**: por que cada passo foi dado, quais ferramentas usei e o que aprendi. As flags são omitidas de propósito (a TryHackMe desencoraja expor respostas de salas ativas).
 
-> As flags e as respostas das salas são omitidas, seguindo as boas práticas da comunidade do TryHackMe.
+---
 
-## Write-ups
+## 📚 Writeups
 
-| Sala | Dificuldade | Temas | Write-up |
-|---|---|---|---|
-| Blue | Fácil | Nmap, EternalBlue (MS17-010), Metasploit, quebra de hashes | [Ler](blue/) |
-| Vulnversity | Fácil | Enumeração web, upload malicioso, reverse shell, SUID | [Ler](vulnversity/) |
+| # | Sala | Dificuldade | SO | Foco | Writeup |
+|---|------|-------------|-----|------|---------|
+| 1 | OpenVPN | Easy | — | Setup de conexão VPN | — |
+| 2 | Vulnversity | Easy | Linux | Recon, upload malicioso, privesc SUID | [Ver](./vulnversity/) |
+| 3 | Blue | Easy | Windows | EternalBlue (MS17-010), Metasploit | [Ver](./blue/) |
+| 4 | Kenobi | Easy | Linux | Samba, ProFTPD, NFS, PATH hijacking | [Ver](./kenobi/) |
 
-## Salas de fundamentos concluídas
+---
 
-- Offensive Security Intro
-- Search Skills
-- OpenVPN
+## 🧭 Metodologia
 
-## Autor
+Sigo sempre a mesma sequência em cada sala — vira hábito e acelera o aprendizado:
 
-**Jose Italo** · [@shiedahacker](https://github.com/shiedahacker)
+1. **Conectar** — VPN ou AttackBox, anotar o IP alvo.
+2. **Enumerar portas** — descobrir portas abertas e versões dos serviços (`nmap`).
+3. **Enumerar a web** — código-fonte, diretórios, parâmetros (`gobuster`, `ffuf`, Burp).
+4. **Enumerar serviços** — FTP, SMB, NFS, SSH por acesso anônimo e versões vulneráveis.
+5. **Obter acesso** — explorar a falha encontrada e conseguir um shell.
+6. **Escalar privilégios** — `sudo -l`, binários SUID, cron, credenciais salvas.
+7. **Capturar as flags** — ler os arquivos indicados.
+8. **Documentar** — registrar a falha, como detectei, como explorei e como corrigir.
+
+---
+
+## 🧰 Ferramentas usadas até aqui
+
+`nmap` · `gobuster` · `Burp Suite` · `netcat` · `smbclient` · `searchsploit` · `Metasploit` · `hashcat` / CrackStation · `mount` (NFS) · GTFOBins
+
+---
+
+## ⚠️ Aviso
+
+Todo o conteúdo aqui foi praticado em **ambiente autorizado** (laboratórios da TryHackMe). As técnicas são documentadas para fins **educacionais**. Nunca use em sistemas sem permissão explícita.
+
+---
+
+*Em constante atualização conforme avanço na trilha. 🚀*
